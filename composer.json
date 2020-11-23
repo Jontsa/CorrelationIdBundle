@@ -1,0 +1,27 @@
+{
+  "name": "jontsa/correlation-id-bundle",
+  "description": "Symfony bundle for tracking requests between services.",
+  "license": "MIT",
+  "type": "symfony-bundle",
+
+  "require": {
+    "php": "^7.1",
+    "symfony/http-kernel": "^5.1",
+    "symfony/config": "^5.1",
+    "symfony/dependency-injection": "^5.1"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^5.1"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Jontsa\\Bundle\\CorrelationIdBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Jontsa\\Bundle\\CorrelationIdBundle\\Tests\\": "Tests/"
+    }
+  }
+}
