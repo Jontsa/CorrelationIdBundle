@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 class CorrelationIdRequestListener
 {
 
-    const HEADER_NAME = 'correlation-id';
+    const HEADER_NAME = 'x-correlation-id';
 
     private $correlationId;
 
