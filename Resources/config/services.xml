@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="jontsa.correlation_id.factory" class="Jontsa\Bundle\CorrelationIdBundle\Factory\CorrelationIdFactory"/>
+        <service id="jontsa.correlation_id" class="Jontsa\Bundle\CorrelationIdBundle\Model\CorrelationId">
+            <factory service="jontsa.correlation_id.factory"/>
+        </service>
+        <service id="jontsa.correlation_id.request_listener" class="Jontsa\Bundle\CorrelationIdBundle\EventListener\CorrelationIdRequestListener">
+            <argument type="service" id="jontsa.correlation_id"/>
+            <tag name="kernel.event_listener" event="kernel.request" priority="2048" />
+        </service>
+        <service id="jontsa.correlation_id.monolog_processor" class="Jontsa\Bundle\CorrelationIdBundle\Monolog\CorrelationIdProcessor">
+            <argument type="service" id="jontsa.correlation_id"/>
+            <tag name="monolog.processor" />
+        </service>
+        <service id="jontsa.correlation_id.messenger_middleware" class="Jontsa\Bundle\CorrelationIdBundle\Messenger\Middleware\CorrelationIdMiddleware">
+            <argument type="service" id="jontsa.correlation_id"/>
+        </service>
+
+        <service id="Jontsa\Bundle\CorrelationIdBundle\Model\CorrelationIdInterface" alias="jontsa.correlation_id"/>
+        <service id="Jontsa\Bundle\CorrelationIdBundle\Factory\CorrelationIdFactoryInterface" alias="jontsa.correlation_id.factory"/>
+    </services>
+</container>
