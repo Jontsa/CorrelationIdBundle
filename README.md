@@ -3,12 +3,20 @@
 This bundle keeps track of correlation-id which makes it easier
 to track requests across microservices.
 
+![Tests](https://github.com/Jontsa/JontsaMaintenanceBundle/workflows/Tests/badge.svg)
+
 ## Features
 
 - Creates unique correlation ID
 - Picks up x-correlation-id from incoming HTTP requests which becomes the parent correlation id
 - Includes Monolog processor to automatically write correlation id and parent id to log messages
 - Includes Messenger middleware to automatically write correlation id to outgoing messages and read id from incoming messages
+
+## Still missing
+
+- HttpClient middleware
+- Configuration
+- More tests
 
 ## Requirements
 
@@ -40,7 +48,7 @@ Applications that use Symfony Flex
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require jontsa/correlation-id-bundle:dev-main
+$ composer require jontsa/correlation-id-bundle:dev-master
 ```
 
 Applications that don't use Symfony Flex
@@ -52,7 +60,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require jontsa/correlation-id-bundle:dev-main
+$ composer require jontsa/correlation-id-bundle:dev-master
 ```
 
 ### Step 2: Enable the Bundle
