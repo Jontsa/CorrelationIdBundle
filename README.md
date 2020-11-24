@@ -21,7 +21,7 @@ to track requests across microservices.
 ## Requirements
 
 - Symfony 5.1+
-- PHP 7.1+
+- PHP 7.2+
 - composer
 
 Installation
